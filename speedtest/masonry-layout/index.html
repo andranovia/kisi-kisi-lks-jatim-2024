@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Line Chart</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        min-width: 960px;
+        min-height: 660px;
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .column {
+        display: grid;
+        grid-template-rows: repeat(6, minmax(0, 1fr));
+        flex: 1;
+        padding: 10px;
+        gap: 0.5rem;
+
+        .rectangle {
+          background-color: gray;
+        }
+
+        .rectangle:nth-child(1) {
+          grid-row: span 3;
+        }
+        .rectangle:nth-child(2) {
+          grid-row: span 1;
+        }
+        .rectangle:nth-child(3) {
+          grid-row: span 2;
+        }
+      }
+
+      .column-2 {
+        display: grid;
+        grid-template-rows: repeat(6, minmax(0, 1fr));
+        flex: 1;
+        padding: 10px;
+        gap: 0.5rem;
+
+        .rectangle {
+          background-color: gray;
+        }
+
+        .rectangle:nth-child(1) {
+          grid-row: span 1;
+        }
+        .rectangle:nth-child(2) {
+          grid-row: span 3;
+        }
+        .rectangle:nth-child(3) {
+          grid-row: span 2;
+        }
+      }
+
+      .column-3 {
+        display: grid;
+        grid-template-rows: repeat(6, minmax(0, 1fr));
+        flex: 1;
+        padding: 10px;
+        gap: 0.5rem;
+
+        .rectangle {
+          background-color: gray;
+        }
+
+        .rectangle:nth-child(1) {
+          grid-row: span 2;
+        }
+        .rectangle:nth-child(2) {
+          grid-row: span 1;
+        }
+        .rectangle:nth-child(3) {
+          grid-row: span 3;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="column">
+        <div class="rectangle"></div>
+        <div class="rectangle"></div>
+        <div class="rectangle"></div>
+      </div>
+      <div class="column-2">
+        <div class="rectangle"></div>
+        <div class="rectangle"></div>
+        <div class="rectangle"></div>
+      </div>
+      <div class="column-3">
+        <div class="rectangle"></div>
+        <div class="rectangle"></div>
+        <div class="rectangle"></div>
+      </div>
+    </div>
+  </body>
+</html>
