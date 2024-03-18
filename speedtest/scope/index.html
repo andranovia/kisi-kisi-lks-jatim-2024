@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        max-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        max-width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+      }
+      p {
+        font-size: 4rem;
+        user-select: none;
+        position: relative;
+        z-index: 4;
+        mix-blend-mode: difference;
+        color: white;
+      }
+      .box {
+        cursor: pointer;
+        width: 400px;
+        height: 400px;
+        position: absolute;
+        mix-blend-mode: difference;
+        background-color: yellow;
+        z-index: 20;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box" id="box"></div>
+      <p class="text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet obcaecati
+        quibusdam, id sunt non inventore quasi animi maxime quas fuga laborum
+        hic veritatis magnam nisi deleniti, quia ullam. At, minima? Lorem ipsum
+        dolor sit amet consectetur adipisicing elit. Nesciunt, officia!
+        Consectetur recusandae laboriosam provident libero possimus nesciunt
+        ipsa modi fugiat, unde vitae voluptate praesentium, fuga illum dicta
+        impedit deleniti cum?
+      </p>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
