@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Line Chart</title>
+    <title>Canvas Line Chart</title>
     <style>
       body {
         height: 100vh;
@@ -11,129 +11,63 @@
         justify-content: center;
         align-items: center;
       }
-      .chart-container {
-        width: 600px;
-        height: 400px;
-        position: relative;
-        margin: 50px auto;
-        padding: 20px;
-      }
-
-      .chart {
-        width: 100%;
-        height: 100%;
-      }
-
-      .line {
-        fill: none;
-        stroke: red;
-        stroke-width: 2;
-      }
     </style>
   </head>
   <body>
-    <div class="chart-container">
-      <svg class="chart" viewBox="0 0 625 400">
-        <!-- X-axis -->
-        <line
-          x1="40"
-          y1="350"
-          x2="570"
-          y2="350"
-          stroke="#000"
-          stroke-width="2"
-        />
-        <text x="575" y="355" class="axis-label">tanggal</text>
-        <line
-          x1="65"
-          y1="350"
-          x2="65"
-          y2="360"
-          stroke="#000"
-          stroke-width="2"
-        />
-        <line
-          x1="135"
-          y1="350"
-          x2="135"
-          y2="360"
-          stroke="#000"
-          stroke-width="2"
-        />
-        <line
-          x1="205"
-          y1="350"
-          x2="205"
-          y2="360"
-          stroke="#000"
-          stroke-width="2"
-        />
-        <line
-          x1="275"
-          y1="350"
-          x2="275"
-          y2="360"
-          stroke="#000"
-          stroke-width="2"
-        />
-        <line
-          x1="345"
-          y1="350"
-          x2="345"
-          y2="360"
-          stroke="#000"
-          stroke-width="2"
-        />
-        <line
-          x1="415"
-          y1="350"
-          x2="415"
-          y2="360"
-          stroke="#000"
-          stroke-width="2"
-        />
-        <line
-          x1="485"
-          y1="350"
-          x2="485"
-          y2="360"
-          stroke="#000"
-          stroke-width="2"
-        />
-        <line
-          x1="555"
-          y1="350"
-          x2="555"
-          y2="360"
-          stroke="#000"
-          stroke-width="2"
-        />
+    <canvas id="lineChart" width="625" height="400"></canvas>
+    <script>
+      var canvas = document.getElementById("lineChart");
+      var ctx = canvas.getContext("2d");
 
-        <text x="60" y="380" class="axis-label">1</text>
+      var dataPoints = [
+        { x: 50, y: 320 },
+        { x: 120, y: 300 },
+        { x: 220, y: 60 },
+        { x: 280, y: 210 },
+        { x: 360, y: 130 },
+        { x: 420, y: 300 },
+        { x: 490, y: 150 },
+        { x: 550, y: 240 },
+      ];
 
-        <text x="130" y="380" class="axis-label">2</text>
-        <text x="200" y="380" class="axis-label">3</text>
-        <text x="270" y="380" class="axis-label">4</text>
-        <text x="340" y="380" class="axis-label">5</text>
-        <text x="410" y="380" class="axis-label">6</text>
-        <text x="480" y="380" class="axis-label">7</text>
-        <text x="550" y="380" class="axis-label">8</text>
+      ctx.beginPath();
+      ctx.moveTo(40, 350);
+      ctx.lineTo(570, 350);
+      ctx.fillText("Tanggal", 575, 355);
+      ctx.stroke();
 
-        <!-- Y-axis -->
-        <line x1="40" y1="20" x2="40" y2="350" stroke="#000" stroke-width="2" />
-        <text x="20" y="10" class="axis-label">jumlah</text>
-        <text x="0" y="330" class="axis-label">13</text>
-        <text x="0" y="260" class="axis-label">27</text>
-        <text x="0" y="190" class="axis-label">41</text>
-        <text x="0" y="130" class="axis-label">55</text>
-        <text x="0" y="60" class="axis-label">70</text>
+      var xLabels = ["1", "2", "3", "4", "5", "6", "7", "8"];
+      xLabels.forEach(function (label, index) {
+        ctx.fillText(label, 40 + index * 70, 380);
+        ctx.beginPath();
+        ctx.moveTo(44 + index * 70, 350);
+        ctx.lineTo(44 + index * 70, 360);
+        ctx.stroke();
+      });
 
-        <!-- Line -->
-        <path
-          class="line"
-          d="M50,320 L120,300 L220,60 L280,210 L360,130  L420,300 L490,150 L550,240"
-        />
-      </svg>
-    </div>
+      ctx.beginPath();
+      ctx.moveTo(40, 20);
+      ctx.lineTo(40, 350);
+      ctx.stroke();
+      ctx.fillText("Jumlah", 20, 10);
+
+      var yLabels = ["13", "27", "41", "55", "70"];
+      yLabels.forEach(function (label, index) {
+        ctx.fillText(label, 0, 330 - index * 70);
+        ctx.beginPath();
+        ctx.moveTo(30, 325 - index * 70);
+        ctx.lineTo(40, 325 - index * 70);
+        ctx.stroke();
+      });
+
+      ctx.strokeStyle = "red";
+
+      ctx.beginPath();
+      ctx.moveTo(dataPoints[0].x, dataPoints[0].y);
+      for (var i = 1; i < dataPoints.length; i++) {
+        ctx.lineTo(dataPoints[i].x, dataPoints[i].y);
+      }
+      ctx.stroke();
+    </script>
   </body>
 </html>
