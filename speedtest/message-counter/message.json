@@ -1,0 +1,25 @@
+{
+    "messages": [
+      {
+        "type": "sent",
+        "text": "Hello, how are you?"
+      },
+      {
+        "type": "received",
+        "text": "I'm good, thank you!"
+      },
+      {
+        "type": "sent",
+        "text": "What are you up to today?"
+      },
+      {
+        "type": "received",
+        "text": "Just working on some projects."
+      },
+      {
+        "type": "sent",
+        "text": "That sounds interesting!"
+      }
+    ]
+  }
+  
