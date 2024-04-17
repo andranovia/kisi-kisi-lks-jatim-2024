@@ -125,18 +125,21 @@ function placeHexagon() {
             sameRowHexagon.querySelectorAll(".hexagon")[index + 1];
 
           if (
+            leftAdjacent &&
             leftAdjacent !== undefined &&
             leftAdjacent.style.backgroundColor === currentTurnHexagon.color
           ) {
             leftAdjacent.innerHTML++;
           } else if (
-            leftAdjacent !== undefined &&
+            rightAdjacent &&
+            rightAdjacent !== undefined &&
             rightAdjacent.style.backgroundColor === currentTurnHexagon.color
           ) {
             rightAdjacent.innerHTML++;
           }
 
           if (
+            leftAdjacent &&
             leftAdjacent.innerHTML !== "" &&
             parseInt(
               sameRowHexagon.querySelectorAll(".hexagon")[index].innerHTML
@@ -147,6 +150,7 @@ function placeHexagon() {
 
           if (currentTurnPlayer === 1) {
             currentTurnPlayer = 2;
+            setInterval(botMoves(), 2000);
           } else {
             currentTurnPlayer = 1;
           }
@@ -181,7 +185,17 @@ function update() {
   } else if (currentTurnPlayer === 2) {
     currentTurnHexagon.color = "rgb(90, 207, 237)";
   }
-
   currentHexagon.style.backgroundColor = currentTurnHexagon.color;
   pointText.innerHTML = currentTurnHexagon.value;
+}
+
+function botMoves() {
+  update();
+  const availableHexagon = document.querySelectorAll(
+    ".hexagon:not(.disabled-hexagon)"
+  );
+  const randomIndex = Math.floor(Math.random() * availableHexagon.length);
+  const clickedHexagon = availableHexagon[randomIndex];
+
+  clickedHexagon.click();
 }
