@@ -150,11 +150,11 @@ function placeHexagon() {
 
           if (currentTurnPlayer === 1) {
             currentTurnPlayer = 2;
-            setInterval(botMoves(), 2000);
+            update();
           } else {
             currentTurnPlayer = 1;
+            update();
           }
-          update();
         }
 
         hexagonal.removeEventListener("click", arguments.callee);
@@ -184,18 +184,38 @@ function update() {
     currentTurnHexagon.color = "rgb(228, 96, 96)";
   } else if (currentTurnPlayer === 2) {
     currentTurnHexagon.color = "rgb(90, 207, 237)";
+    if (bot.checked) {
+      botMoves();
+    }
   }
   currentHexagon.style.backgroundColor = currentTurnHexagon.color;
   pointText.innerHTML = currentTurnHexagon.value;
 }
 
 function botMoves() {
-  update();
-  const availableHexagon = document.querySelectorAll(
-    ".hexagon:not(.disabled-hexagon)"
+  const availableHexagons = document.querySelectorAll(
+    ".hexagon:not(.disabled-hexagon):not(.clicked)[style*='background-color: rgb(240, 248, 255)']"
   );
-  const randomIndex = Math.floor(Math.random() * availableHexagon.length);
-  const clickedHexagon = availableHexagon[randomIndex];
 
-  clickedHexagon.click();
+  const randomIndex = Math.floor(Math.random() * availableHexagons.length);
+  const hoveredHexagon = availableHexagons[randomIndex];
+  hoveredHexagon.dispatchEvent(new MouseEvent("mouseenter"));
+  setTimeout(() => {
+    hoveredHexagon.dispatchEvent(new MouseEvent("mouseleave"));
+  }, 500);
+  setTimeout(() => {
+    const randomIndexTwo = Math.floor(Math.random() * availableHexagons.length);
+    const hoveredHexagonTwo = availableHexagons[randomIndexTwo];
+    hoveredHexagonTwo.dispatchEvent(new MouseEvent("mouseenter"));
+    setTimeout(() => {
+      hoveredHexagonTwo.dispatchEvent(new MouseEvent("mouseleave"));
+    }, 500);
+    setTimeout(() => {
+      const randomIndexThree = Math.floor(
+        Math.random() * availableHexagons.length
+      );
+      const clickedHexagon = availableHexagons[randomIndexThree];
+      clickedHexagon.click();
+    }, 500);
+  }, 500);
 }
