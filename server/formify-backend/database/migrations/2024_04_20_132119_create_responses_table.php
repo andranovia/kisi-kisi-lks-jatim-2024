@@ -16,6 +16,10 @@ return new class extends Migration
             $table->unsignedBigInteger('question_id');
             $table->foreign('question_id')->references('id')->on('questions');
             $table->string('value');
+            $table->unsignedBigInteger('form_id');
+            $table->foreign('form_id')->references('id')->on('forms');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

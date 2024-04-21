@@ -20,6 +20,7 @@ Route::prefix('v1')->group(function () {
         Route::post('{form_slug}/questions', [QuestionController::class, 'post']);
         Route::post('{form_slug}/questions', [QuestionController::class, 'post']);
         Route::post('{form_slug}/responses', [ResponseController::class, 'post']);
+        Route::get('{form_slug}/responses', [ResponseController::class, 'get']);
     });
 });
 

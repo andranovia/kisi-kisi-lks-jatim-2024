@@ -9,5 +9,5 @@ class Question extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $fillable = ['name', 'choice_type', 'choices', 'is_required', 'form_id'];
+    protected $fillable = ['name', 'choice_type', 'choices', 'is_required'];
 }
