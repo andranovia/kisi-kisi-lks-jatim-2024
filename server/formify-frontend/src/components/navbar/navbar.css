@@ -1,0 +1,27 @@
+.navbar-container {
+  margin: 0;
+  min-width: 320px;
+  min-height: 3rem;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+}
+
+.navbar {
+  position: fixed;
+  width: 80%;
+  background-color: white;
+  padding-top: 4rem 0 2rem;
+  min-height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .navbar-left {
+    font-weight: 700;
+    font-size: 2rem;
+  }
+  .navbar-right {
+    font-weight: 500;
+    font-size: 1rem;
+  }
+}

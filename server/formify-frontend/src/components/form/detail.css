@@ -1,0 +1,54 @@
+.container-detail {
+  margin: 0;
+  margin: 4rem 0 8rem;
+  width: 40%;
+  min-width: 320px;
+
+  display: flex;
+  justify-content: center;
+  margin-left: 10rem;
+  flex-direction: column;
+  h4 {
+    font-weight: 500;
+    font-size: medium;
+  }
+  h4:nth-child(2) {
+    color: rgb(149, 149, 149);
+  }
+}
+.form-detail-info {
+  display: flex;
+  gap: 2rem;
+}
+
+.detail-item {
+  color: #323232;
+  padding: 20px;
+  border-radius: 10px;
+  border-color: #323232;
+  border: 2px;
+  border-style: solid;
+}
+
+.detail-item-info {
+  display: flex;
+  margin: -14px 0 -14px 0;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.question-info {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 2rem;
+}
+.add-question-button {
+  width: 10rem;
+  padding: 10px 0px 8px;
+  border-radius: 6px;
+  font-weight: 700;
+  background-color: #323232;
+  color: aliceblue;
+  cursor: pointer;
+}
